@@ -1,6 +1,6 @@
 # salehbigdeli.github.io
 
-Source for a static blog, built with [Eleventy](https://www.11ty.dev/) from Markdown in `src/posts/`. You do not edit raw HTML for articles.
+Source for a static blog, built with [Eleventy](https://www.11ty.dev/) from Markdown in `src/posts/`.
 
 ## Prerequisities
 
@@ -58,5 +58,3 @@ This repository uses [GitHub Actions](https://docs.github.com/en/pages/getting-s
 The published site is the contents of `_site/` after `npm run build`. Hand-written HTML at the repo root was removed in favor of Markdown sources and layouts.
 
 Do not commit `_site/` or `node_modules/` (see `.gitignore`); CI builds a fresh site on each push.
-
-
