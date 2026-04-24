@@ -6,19 +6,47 @@
   <title>{% if isHome %}{{ site.title }}{% else %}{{ title }} · {{ site.title }}{% endif %}</title>
   <meta name="description" content="{{ description | default('Ali Akbar Saleh Bigdeli — technical notes on Rust, async systems, and performance.') | safe }}">
   <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism-okaidia.min.css" crossorigin>
+  <link rel="stylesheet" id="prism-theme" href="https://unpkg.com/prismjs@1.29.0/themes/prism-okaidia.min.css" crossorigin>
+  <script>
+  (function () {
+    var K = "color-scheme";
+    var t = localStorage.getItem(K);
+    if (t === "light" || t === "dark") {
+      document.documentElement.setAttribute("data-theme", t);
+    }
+    var dark =
+      t === "light" ? false
+      : t === "dark" ? true
+      : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var link = document.getElementById("prism-theme");
+    var u = "https://unpkg.com/prismjs@1.29.0/themes/";
+    if (link) {
+      link.href = dark
+        ? u + "prism-okaidia.min.css"
+        : u + "prism.min.css";
+    }
+  })();
+  </script>
   <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/feed.xml" title="{{ site.title }}">
 </head>
 <body>
   <header class="site-header">
     <div class="container">
       <a class="brand" href="/">{{ site.title }}</a>
-      <nav class="nav">
+      <nav class="nav" aria-label="Primary">
         <a href="/#posts">Posts</a>
         <a href="/categories/">Categories</a>
         <a href="/tags/">Tags</a>
         <a href="/feed.xml">RSS</a>
         <a href="/#about">About</a>
+        <div class="nav-end">
+          <label class="visually-hidden" for="theme-select">Color theme</label>
+          <select id="theme-select" class="theme-select">
+            <option value="system" selected>System</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
       </nav>
     </div>
   </header>
@@ -30,5 +58,6 @@
       <p>© 2026 Ali Saleh Bigdeli · Technical writing and Rust code snippets. Built with <a href="https://www.11ty.dev/">Eleventy</a> from Markdown.</p>
     </div>
   </footer>
+  <script src="/js/theme.js" defer></script>
 </body>
 </html>
