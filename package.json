@@ -1,0 +1,14 @@
+{
+  "name": "salehbigdeli.github.io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static blog (Eleventy) built from Markdown",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.5",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0"
+  }
+}

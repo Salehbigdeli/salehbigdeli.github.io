@@ -1,0 +1,13 @@
+---
+layout: base.njk
+---
+<main class="container post-layout article-content">
+  <a class="back-link" href="/#posts">← Back to all posts</a>
+  <h1>{{ title }}</h1>
+  <p class="article-meta">
+    {{ date | formatPostDate }}{% if readMinutes %} · {{ readMinutes }} min read{% endif %}{% if postTags and postTags | length %} · {{ postTags | join(" · ") }}{% endif %}
+  </p>
+  <div>
+    {{ content | safe }}
+  </div>
+</main>

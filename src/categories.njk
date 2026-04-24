@@ -1,0 +1,19 @@
+---
+layout: base.njk
+title: Categories
+description: "Browse blog posts by category."
+permalink: /categories/index.html
+---
+<main class="container simple-list-page">
+  <h1>Categories</h1>
+  <p class="lead">Browse articles by broader technical topic.</p>
+
+  {%- for cat in collections.postsSorted | uniqueCategories %}
+  <h2>{{ cat }}</h2>
+  <ul>
+    {%- for p in collections.postsSorted | inCategory(cat) %}
+    <li><a href="{{ p.url }}">{{ p.data.title }}</a></li>
+    {%- endfor %}
+  </ul>
+  {%- endfor %}
+</main>

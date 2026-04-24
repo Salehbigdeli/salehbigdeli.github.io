@@ -1,0 +1,19 @@
+---
+layout: base.njk
+title: Tags
+description: "Browse blog posts by tag."
+permalink: /tags/index.html
+---
+<main class="container simple-list-page">
+  <h1>Tags</h1>
+  <p class="lead">Browse articles by specific Rust and engineering tags.</p>
+
+  {%- for tag in collections.postsSorted | uniquePostTags %}
+  <h2>{{ tag }}</h2>
+  <ul>
+    {%- for p in collections.postsSorted | withTag(tag) %}
+    <li><a href="{{ p.url }}">{{ p.data.title }}</a></li>
+    {%- endfor %}
+  </ul>
+  {%- endfor %}
+</main>

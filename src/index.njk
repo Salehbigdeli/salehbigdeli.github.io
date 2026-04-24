@@ -1,0 +1,51 @@
+---
+layout: base.njk
+isHome: true
+description: "Ali Akbar Saleh Bigdeli — systems programming, performance, and practical engineering notes in Rust."
+---
+<main class="container">
+  <section class="hero">
+    <p class="eyebrow">Ali Akbar Saleh Bigdeli</p>
+    <h1>Notes on Rust programming</h1>
+    <p class="lead">
+      A focused engineering blog about Rust patterns, async systems, error handling,
+      and performance-minded design. Content is optimized for readable code-heavy posts.
+    </p>
+  </section>
+
+  <section id="posts" class="posts-section">
+    <h2>Latest Posts</h2>
+
+    {%- for post in collections.postsSorted %}
+    <article class="post-card">
+      <div class="post-meta">
+        <span>{{ post.date | formatPostDate }}</span>
+        {% if post.data.category -%}
+        <span class="tag">{{ post.data.category }}</span>
+        {%- endif %}
+        {% for t in post.data.postTags | default([]) -%}
+        {% if loop.index0 < 2 %}<span class="tag">{{ t }}</span>{% endif %}
+        {%- endfor %}
+      </div>
+      <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+      <p>{{ post.data.description }}</p>
+    </article>
+    {%- endfor %}
+  </section>
+
+  <section id="about" class="about">
+    <h2>About This Blog</h2>
+    <p>
+      I write practical notes for developers shipping Rust in production.
+      Expect short, actionable posts with real code examples.
+    </p>
+    <p>
+      Want to subscribe? Use the <a href="/feed.xml">RSS feed</a>. Looking for specific topics?
+      Browse <a href="/categories/">categories</a> or <a href="/tags/">tags</a>.
+    </p>
+    <p>
+      New post workflow: add a <code>src/posts/your-slug.md</code> file (start from
+      <code>src/_templates/post-starter.md</code>), then run <code>npm run build</code>.
+    </p>
+  </section>
+</main>
