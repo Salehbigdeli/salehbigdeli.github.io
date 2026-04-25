@@ -6,7 +6,11 @@ const sitemap = require("@quasibit/eleventy-plugin-sitemap");
  */
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
-  eleventyConfig.addPlugin(sitemap);
+  eleventyConfig.addPlugin(sitemap, {
+    sitemap: {
+      hostname: "https://salehbigdeli.github.io",
+    },
+  });
   eleventyConfig.addCollection("postsSorted", (collectionApi) => {
     const posts = collectionApi.getFilteredByGlob("src/posts/*.md");
     return posts.sort((a, b) => b.date - a.date);
