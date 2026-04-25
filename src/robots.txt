@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yourusername.github.io/sitemap.xml
+Sitemap: https://salehbigdeli.github.io/sitemap.xml
