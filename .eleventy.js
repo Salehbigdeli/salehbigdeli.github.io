@@ -1,11 +1,12 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 
 /**
  * @param {import("@11ty/eleventy").UserConfig} eleventyConfig
  */
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
-
+  eleventyConfig.addPlugin(sitemap);
   eleventyConfig.addCollection("postsSorted", (collectionApi) => {
     const posts = collectionApi.getFilteredByGlob("src/posts/*.md");
     return posts.sort((a, b) => b.date - a.date);
