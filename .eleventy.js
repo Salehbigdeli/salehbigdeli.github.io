@@ -6,6 +6,7 @@ const sitemap = require("@quasibit/eleventy-plugin-sitemap");
  */
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
   eleventyConfig.addPlugin(sitemap, {
     sitemap: {
       hostname: "https://salehbigdeli.github.io",
