@@ -12,6 +12,17 @@ postTags:
 ---
 
 ## What is a rate limiter?
+
+You deploy a service. Everything works fine—until one client suddenly sends thousands of requests in a short period of time.
+
+At that point:
+- CPU usage spikes
+- Other users experience slow responses
+- Your service becomes unreliable
+
+This is where a rate limiter becomes essential.
+
+
 You may have encountered a 429 error code when making requests to a REST API. This typically indicates that you’ve hit a rate limit enforced by the service you’re trying to access. A rate limiter is a mechanism that restricts how frequently a client can call an API within a given period of time, preventing excessive or abusive usage.
 ### Why rate limiters are used?
 Prevent overload – stops servers from being flooded with too many requests
